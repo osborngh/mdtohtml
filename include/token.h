@@ -1,5 +1,5 @@
-#ifndef _TOKEN_H
-#define _TOKEN_H
+#ifndef _TOKEN_H_
+#define _TOKEN_H_
 
 typedef enum {
 	MD_PARAGRAPH,
@@ -35,4 +35,4 @@ typedef struct {
 	char* literal;
 } tokentype;
 
-#endif // _TOKEN_H
+#endif // _TOKEN_H_
