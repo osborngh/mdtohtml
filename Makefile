@@ -15,6 +15,9 @@ $(EXEC): $(OBJECTS)
 $(OBJECTS) : build/%.o : src/%.c
 	$(CC) -c $< $(CFLAGS) -o $@
 
+run: $(EXEC)
+	$(EXEC)
+
 build:
 	@mkdir -p build
 

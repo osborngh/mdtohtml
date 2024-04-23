@@ -2,7 +2,12 @@
 #define _CLI_H_
 
 #define USAGE_INFO \
-""
+"Usage: mdtohtml [OPTIONS] INPUT \n\
+\n\
+Options: \n\
+\t-h, --help\t\tDisplay this message \n\
+\n\
+"
 
 typedef struct {
     // Values: v -> version; t -> transpile; h -> help
