@@ -48,6 +48,7 @@ Paragraph 3. This has two spaces at its end. Select it and see.
 
 
 <!-- Quotes and Indents -->
+<!-- Supports up to 5 levels of indent -->
 > Quote 1.
 >> Indent 1.
 >>> Triple Indent
