@@ -40,7 +40,7 @@ cli* parse(int count, char* args[]) {
         else {
             char* p = strstr(args[i], "-");
             // Skip the first arg (this file) and a bounds check.
-            if (i >= 1 && i+1 < count) {
+            if (i >= 0 && i+1 < count) {
                 if (!p) {
                     if (file_exists(args[i+1]) != 0) {
                         log_err_sarg("Invalid Input File", args[i+1]);
@@ -49,7 +49,7 @@ cli* parse(int count, char* args[]) {
                         cmd->input_file = args[i+1];
                     }
                 } else {
-                    log_err_sarg("Invalid Option", args[i+1]);
+                    log_err_sarg("Invalid Option", args[i]);
                 }
             }
         }
