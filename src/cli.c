@@ -8,11 +8,11 @@
 cli* parse(int count, char* args[]) {
     cli* cmd = malloc(sizeof(cli));
 
-    if ((count == 2) && (strcmp(&args[1], "-v") || strcmp(&args[1], "--version"))) {
+    if ((count == 2 && strcmp(&args[1], "-v")) || (count == 2 && strcmp(&args[1], "--version"))) {
         printf("%s", MD_TO_HTML_VERSION_INFO);
     }
 
-    if ((count == 2) && (strcmp(&args[1], "-h") || strcmp(&args[1], "--help"))) {
+    if ((count == 2 && strcmp(&args[1], "-h")) || (count == 2 && strcmp(&args[1], "--help"))) {
         printf("%s", USAGE_INFO);
     }
 
