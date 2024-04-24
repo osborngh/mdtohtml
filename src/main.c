@@ -14,9 +14,6 @@ Usage: mdtohtml input.md -o output.html
 int main(int argc, char* argv[]) {
 	cli* cmd = parse(argc, argv);
 
-	char* input = cmd->input;
-	char* output = cmd->output;
-
 	free(cmd);
 	return 0;
 }

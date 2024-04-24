@@ -5,15 +5,17 @@
 "Usage: mdtohtml [OPTIONS] INPUT \n\
 \n\
 Options: \n\
-\t-h, --help\t\tDisplay this message \n\
+  -v, --version\t\tDisplay current version. \n\
+  -h, --help\t\tDisplay this information. \n\
+  -o <file>\t\tOutput the resolved HTML into <file>. \n\
+  --dumptokens <file>\tOutput the resolved tokens into <file>. \n\
 \n\
 "
 
 typedef struct {
-    // Values: v -> version; t -> transpile; h -> help
-    char op;
-    char* input;
-    char* output;
+    char* output_file;
+    char* input_file;
+    char* tokdump_file;
 } cli;
 
 cli* parse(int count, char* args[]);
