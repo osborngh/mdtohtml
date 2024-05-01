@@ -18,6 +18,6 @@ typedef struct {
     char* tokdump_file;
 } cli;
 
-cli* parse(int count, char* args[]);
+cli* cli_parse(int count, char* args[]);
 
 #endif // _CLI_H_

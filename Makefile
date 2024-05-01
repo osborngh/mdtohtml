@@ -1,7 +1,7 @@
 # MD To HTML Transpiler Build 
 # Copyright 2024 Vinci
 
-CFLAGS := -std=c99 -Wall -O3 -I ./include/
+CFLAGS := -std=c11 -Wall -O3 -I ./include/
 SRC := $(wildcard src/*.c)
 EXEC := ./build/mdtohtml
 LIBS :=
