@@ -3,9 +3,6 @@
 #include "parser.h"
 
 
-char* parser_parse(char* input_string) {
-    parser parser = {
-        .ch = ' ',
-        .n_ch = ' ',
-    };
+void parser_parse(parser* parser, char* input_string) {
+
 }

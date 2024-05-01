@@ -9,16 +9,24 @@
 
 const char* VALID_ARGS = "-v --version -h --help -o -d --dumptokens";
 
-cli* cli_parse(int count, char* args[]) {
-    cli* cmd = malloc(sizeof(cli));
+void cli_parse(cli* cmd, int count, char* args[]) {
+    cmd->output_file = "";
+    cmd->input_file = "";
+    cmd->tokdump_file = "";
 
+    if (count == 1) {
+        printf("%s", USAGE_INFO);
+        return;
+    }
     // Might be inefficient but does the job;
     for (int i = 0; i < count; i++) {
         if ((strcmp(args[i], "-v") == 0) || (strcmp(args[i], "--version") == 0)) {
             printf("%s", MD_TO_HTML_VERSION_INFO);
+            return;
         }
         else if ((strcmp(args[i], "-h") == 0) || (strcmp(args[i], "--help") == 0)) {
             printf("%s", USAGE_INFO);
+            return;
         }
         else if (strcmp(args[i], "-o") == 0) {
             // [not_set] used to check if its set later on
@@ -27,7 +35,7 @@ cli* cli_parse(int count, char* args[]) {
             // pass in file name which is the next arg
             if (file_exists(args[i+1]) != 0) {
                 log_err_sarg("Invalid Output File", args[i+1]);
-                return 0;
+                return;
             }
             cmd->output_file = args[i+1];
         }
@@ -36,7 +44,7 @@ cli* cli_parse(int count, char* args[]) {
             cmd->tokdump_file = "[NOT_SET]";
             if (file_exists(args[i+1]) != 0) {
                 log_err_sarg("Invalid Token Dump Filepath", args[i+1]);
-                return 0;
+                return;
             }
             cmd->tokdump_file = args[i+1];
         }
@@ -58,7 +66,7 @@ cli* cli_parse(int count, char* args[]) {
                     if (file_exists(args[i+1]) != 0) {
                         log_err_sarg("Invalid Input File", args[i+1]);
 
-                        return 0;
+                        return;
                     } else {
                         cmd->input_file = args[i+1];
                     }
@@ -72,5 +80,4 @@ cli* cli_parse(int count, char* args[]) {
             }
         }
     }
-    return cmd;
 }
